@@ -205,3 +205,26 @@
     align-items: center;
     font-weight: bold;
 }
+
+@media (max-width: 991px){
+
+    #container{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #cardOne{
+        height: auto;
+        flex-direction: column;
+    }
+
+    #containerInfo{
+        height: auto;
+        flex-direction: column;
+    }
+
+    #pokeImg{
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+}
