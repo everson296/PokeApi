@@ -1,0 +1,31 @@
+.card{
+    height: 140px;
+    width: 140px;
+    background: #adadad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.idName{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.id{
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.name{
+    font-size: 18px;
+    color: #000;
+}

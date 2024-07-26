@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title> poke agenda - tipo pedra </title>
+        <meta charset="utf-8">
+        <!-- <script src="../../js/types.js" defer></script>  -->
+        <!-- Icone da guia -->
+        <link rel="icon" type="imagem/png" href="../../img/icon_guia/pokedex.png"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">   
+        <!--Font Awesome Icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- Stylesheet (css) -->
+        <link rel="stylesheet" type="text/css" href="../../css/globalStyle.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/pokemon.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/types.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/typeColor.css">    
+    </head>
+    <body>
+        
+        <header>
+            <nav id="containerMenu">
+                <div id="logo">
+                    <img src="../../img/menu/poke.jpg"/>
+                    <a href="../../index.html">poke<span>api</span></a>
+                </div>
+
+                <div id="menu">
+                    <li class="itensMenu"> <a href="../../index.html"> inicio </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/home/home.html"> pokemons </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/generations/gem1.html"> gerações </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/nature/nature.html"> natureza </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/moves/normal.html"> movimentos </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/berrys/berrys.html"> frutas </a> </li>
+                    <li class="itensMenu focus"> <a href="#"> tipos </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/comparePokemon/compararPoke.html"> versus </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/search/search.html"> pesquisa </a> </li>
+                </div>
+
+            </nav>
+        </header>
+        
+        <ul id="menuTypes">
+
+            <li class="itemsmenuType"><a href="normal.html" id="normal"> normal </a></li>
+            <li class="itemsmenuType"><a href="fighting.html" id="fighting"> fighting </a></li>
+            <li class="itemsmenuType"><a href="flying.html" id="flying"> flying </a></li>
+            <li class="itemsmenuType"><a href="poison.html" id="poison"> poison </a></li>
+            <li class="itemsmenuType"><a href="ground.html" id="ground"> ground </a></li>
+            <li class="itemsmenuType"><a class="rock" href="rock.html" id="rock"> rock </a></li>
+            <li class="itemsmenuType"><a href="bug.html" id="bug"> bug </a></li>
+            <li class="itemsmenuType"><a href="ghost.html" id="ghost"> ghost </a></li>
+            <li class="itemsmenuType"><a href="steel.html" id="steel"> steel </a></li>
+            <li class="itemsmenuType"><a href="fire.html" id="fire"> fire </a></li>
+            <li class="itemsmenuType"><a href="water.html" id="water"> water </a></li>
+            <li class="itemsmenuType"><a href="grass.html" id="grass"> grass </a></li>
+            <li class="itemsmenuType"><a href="electric.html" id="electric"> electric </a></li>
+            <li class="itemsmenuType"><a href="psychic.html" id="psychic"> psychic </a></li>
+            <li class="itemsmenuType"><a href="ice.html" id="ice"> ice </a></li>
+            <li class="itemsmenuType"><a href="dragon.html" id="dragon"> dragon </a></li>
+            <li class="itemsmenuType"><a href="dark.html" id="dark"> dark </a></li>
+            <li class="itemsmenuType"><a href="fairy.html" id="fairy"> fairy </a></li>
+            
+        </ul>
+        
+        <div id="container"></div>
+       
+        <footer>Todos os direitos copyright© a PokéAPI - desenvolvido por Everson Silva De Almeida</footer>
+        
+    </body>
+
+    <script>
+        let type = 'rock'
+        const url = `https://pokeapi.co/api/v2/type/`;
+        const container = document.getElementById('container');
+
+        const cardPokemon = (pokemon, i) => {
+            if(pokemon.types.length == 1){
+            container.innerHTML+= `
+                <div class="card">
+                    <div class="backgroundColor ${pokemon.types[0].type.name}">
+                        <div class="id">${pokemon.id}</div>
+                    </div>
+                    <img src="${pokemon.sprites.front_default}"/>
+
+                    <div class="name">${pokemon.name}</div>
+                    <div class="types">
+                        <div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
+                    </div>
+                </div>
+            `;
+            }else{
+                container.innerHTML+= `
+
+                <div class="card">
+                    <div class="backgroundColor ${pokemon.types[0].type.name}">
+                        <div class="id">${pokemon.id}</div>
+                    </div>
+                    <img src="${pokemon.sprites.front_default}"/>
+
+                    <div class="name">${pokemon.name}</div>
+                    <div class="types">
+                        <div class="type ${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</div>
+                        <div class="type ${pokemon.types[0].type.name}">${pokemon.types[1].type.name}</div>
+                    </div>
+                </div>
+            `;   
+            }
+        }
+
+        const listPokemon = async(rr) => {
+            const dados = await fetch(`${url}${rr}`);
+            const pokemon = await dados.json();
+
+            for( let i = 1; i <= pokemon.pokemon.length; i++ ){
+                const url2 = 'https://pokeapi.co/api/v2/pokemon/';
+                const dados2 = await fetch(`${url2}${pokemon.pokemon[`${i-1}`].pokemon.name}`);
+                const pokemon2 = await dados2.json();
+                let id = pokemon2.id;
+
+                cardPokemon(pokemon2, id)   
+            }
+        }
+
+        listPokemon(type)
+    </script>
+</html>

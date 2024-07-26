@@ -1,0 +1,207 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+#containerInput{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+}
+
+#containerInput input{
+    height: 45px;
+    width: 400px;
+    border: 2px solid #999;
+    background: transparent;
+    font-size: 15px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #999;
+    transition: .5s;
+}
+
+#containerInput input:focus{
+    border-color: #fff;
+    color: #fff;
+    transition: .5s;
+}
+
+/* ================ CARD PESQUISA ================ */
+#cardOne{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#pokeName{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #292929;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#containerInfo{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----- informações ----- */
+#pokeInfo{
+    height: 90%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.itensInfo{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.resInfo{
+    height: 100%;
+    width: 300px;
+    color: #292929;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.infoType{
+    height: 35px;
+    width: auto;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    color: #fff;
+    transition: .5s;
+}
+
+.infoType:hover{
+    transition: .5s;
+    cursor: pointer;
+}
+
+.btnInfo{
+    height: 25px;
+    width: auto;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    color: #fff;
+    text-transform: uppercase;  
+    transition: .5s;
+}
+
+.btnInfo:hover{
+    transition: .5s;
+    cursor: pointer;
+}
+
+/* ----- imagem ----- */
+#circleImg{
+    height: 550px;
+    width: 550px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#pokeImg{
+    height: 90%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#pokeImg img{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* ----- status ----- */
+#pokeStatus{
+    height: 90%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.itensStatus{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.titleInfo{
+    height: 100%;
+    width: 125px;
+    color: #292929;
+    font-size: 18px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.resStatus{
+    height: 25px;
+    width: 60%;
+    transform: skewX(-25deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resStatus p{
+    height: 100%;
+    width: auto;
+    transform: skewX(25deg);
+    color: #292929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}

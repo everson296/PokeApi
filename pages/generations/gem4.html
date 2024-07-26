@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title> poke agenda - geração 4 </title>
+        <meta charset="utf-8">
+        <!-- <script src="../../js/generation.js" defer></script>  -->
+        <!-- Icone da guia -->
+        <link rel="icon" type="imagem/png" href="../../img/icon_guia/pokedex.png"/>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">   
+        <!--Font Awesome Icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- Stylesheet (css) -->
+        <link rel="stylesheet" type="text/css" href="../../css/globalStyle.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/pokemon.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/typeColor.css">    
+        <link rel="stylesheet" type="text/css" href="../../css/generation.css">    
+    </head>
+    <body>
+        
+        <header>
+            <nav id="containerMenu">
+                <div id="logo">
+                    <img src="../../img/menu/poke.jpg"/>
+                    <a href="../../index.html">poke<span>api</span></a>
+                </div>
+
+                <div id="menu">
+                    <li class="itensMenu"> <a href="../../index.html"> inicio </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/home/home.html"> pokemons </a> </li>
+                    <li class="itensMenu focus"> <a href="#"> gerações </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/nature/nature.html"> natureza </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/moves/normal.html"> movimentos </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/berrys/berrys.html"> frutas </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/tyepes/normal.html"> tipos </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/comparePokemon/compararPoke.html"> versus </a> </li>
+                    <li class="itensMenu"> <a href="../../pages/search/search.html"> pesquisa </a> </li>
+                </div>
+            </nav>
+        </header>
+        
+        <ul id="menuGerations">
+            <li class="itemMenuGem"><a href="gem1.html"> gem 1 </a></li>
+            <li class="itemMenuGem"><a href="gem2.html"> gem 2 </a></li>
+            <li class="itemMenuGem"><a href="gem3.html"> gem 3 </a></li>
+            <li class="itemMenuGem focus"><a href="gem4.html"> gem 4 </a></li>
+            <li class="itemMenuGem"><a href="gem5.html"> gem 5 </a></li>
+            <li class="itemMenuGem"><a href="gem6.html"> gem 6 </a></li>
+            <li class="itemMenuGem"><a href="gem7.html"> gem 7 </a></li>
+            <li class="itemMenuGem"><a href="gem8.html"> gem 8 </a></li>
+            <li class="itemMenuGem"><a href="gem9.html"> gem 9 </a></li>    
+        </ul>
+                
+        <div id="container"></div>
+        
+    </body>
+
+    <script>
+        var container = document.getElementById('container');
+        var startingN = 387;
+        var finalN = 493; 
+
+        const createCards = (pokemon2) => {
+            const padrao = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+            
+            if(pokemon2.types.length == 1){
+                container.innerHTML+= `
+                <div class="card">
+                    <div class="backgroundColor ${pokemon2.types[0].type.name}">
+                        <div class="id">${pokemon2.id}</div>
+                    </div>
+                    <img src="${padrao}${pokemon2.id}.png"/>
+
+                    <div class="name">${pokemon2.name}</div>
+                    <div class="types">
+                        <div class="type ${pokemon2.types[0].type.name}">${pokemon2.types[0].type.name}</div>
+                    </div>
+                </div>
+            `;
+            }else{
+                container.innerHTML+= `
+                <div class="card">
+                    <div class="backgroundColor ${pokemon2.types[0].type.name}">
+                        <div class="id">${pokemon2.id}</div>
+                    </div>
+                    <img src="${padrao}${pokemon2.id}.png"/>
+
+                    <div class="name">${pokemon2.name}</div>
+                    <div class="types">
+                        <div class="type ${pokemon2.types[0].type.name}">${pokemon2.types[0].type.name}</div>
+                        <div class="type ${pokemon2.types[0].type.name}">${pokemon2.types[1].type.name}</div>
+                    </div>
+                </div>
+            `;   
+            } 
+        }
+
+        const gerarCards = async (startingN, finalN) => {
+            container.innerHTML= ``;
+            
+            for(let i = startingN; i <= finalN; i++){
+                const url = 'https://pokeapi.co/api/v2/pokemon/';
+                const dados = await fetch(`${url}${i}`);
+                const pokemon = await dados.json();
+
+                createCards(pokemon)
+            }
+        }
+
+        gerarCards(startingN, finalN)
+
+    </script>
+</html>

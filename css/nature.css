@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'poppins', sans-serif;
+}
+
+/* ================ container ================ */
+body{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+#container{
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    
+
+}
+/* ----- card ----- */
+.card{
+    height: 200px;
+    width: 265px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: #d1d1d1;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 5px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.card:hover{
+    transition: .5s;
+    transform: scale(1.04);
+}
+
+/* ----- name ----- */
+.name{
+    height: 70%;
+    width: 110%;
+    background: #292929;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+    font-size: 20px;
+    font-weight: bold;
+    font-family: poppins, sans-serif;
+    text-transform: uppercase;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    letter-spacing: 1px;
+    
+    position: absolute;
+    top: -25px;
+}
+
+/* ----- info ----- */
+.info{
+    height: 50%;
+    width: 100%;
+    
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.status{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.status i, .statusName{
+    font-size: 16px;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.statusName{
+    margin-bottom: 0;
+}
+
+.blue{
+    color: #12b4ff;
+}
+
+.red{
+    color: #d92727;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
